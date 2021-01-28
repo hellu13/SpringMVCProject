@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:url var="root" value="/"/>
+<c:set var="root" value="${pageContext.request.contextPath }/"/>
 <!-- 상단 메뉴 부분 -->
 <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top shadow-lg">
 	<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="white" class="bi bi-book" viewBox="0 0 16 16">
