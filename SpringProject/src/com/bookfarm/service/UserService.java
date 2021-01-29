@@ -3,6 +3,7 @@ package com.bookfarm.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.bookfarm.beans.UserBean;
 import com.bookfarm.dao.UserDao;
 
 @Service
@@ -21,6 +22,10 @@ public class UserService {
 		else {
 			return false;
 		}
+	}
+	
+	public void addUserInfo(UserBean joinUserBean) {
+		userDao.addUserInfo(joinUserBean);
 	}
 
 }
