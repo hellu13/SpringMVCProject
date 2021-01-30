@@ -22,6 +22,7 @@ import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.bookfarm.beans.UserBean;
+import com.bookfarm.interceptor.CheckLoginInterceptor;
 import com.bookfarm.interceptor.TopMenuInterceptor;
 import com.bookfarm.mapper.BoardMapper;
 import com.bookfarm.mapper.TopMenuMapper;
@@ -131,6 +132,11 @@ public class ServletAppContext implements WebMvcConfigurer{
 		
 		InterceptorRegistration reg1 = registry.addInterceptor(topMenuInterceptor);
 		reg1.addPathPatterns("/**");  // 모든 주소에 대해 인터셉터 동작
+		
+		CheckLoginInterceptor checkLoginInterceptor = new CheckLoginInterceptor(loginUserBean);
+		InterceptorRegistration reg2 = registry.addInterceptor(checkLoginInterceptor);
+		reg2.addPathPatterns("/user/modify", "/user/logout", "/board/*");
+		reg2.excludePathPatterns("/board/main");
 	}
 	
 	// 프로퍼티 파일 충돌 방지
