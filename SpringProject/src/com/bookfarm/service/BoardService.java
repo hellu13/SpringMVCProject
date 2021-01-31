@@ -1,6 +1,7 @@
 package com.bookfarm.service;
 
 import java.io.File;
+import java.util.List;
 
 import javax.annotation.Resource;
 
@@ -39,6 +40,7 @@ public class BoardService {
 		
 		return file_name;
 	}
+	
 	public void addContentInfo(ContentBean writeContentBean) {
 		
 		MultipartFile upload_file = writeContentBean.getUpload_file();
@@ -51,6 +53,14 @@ public class BoardService {
 		writeContentBean.setContent_writer_idx(loginUserBean.getUser_idx());
 		
 		boardDao.addContentInfo(writeContentBean);
+	}
+	
+	public String getBoardInfoName(int board_info_idx) {
+		return boardDao.getBoardInfoName(board_info_idx);
+	}
+	
+	public List<ContentBean> getContentList(int board_info_idx) {
+		return boardDao.getContentList(board_info_idx);
 	}
 
 }
