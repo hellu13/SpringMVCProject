@@ -24,10 +24,12 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.bookfarm.beans.UserBean;
 import com.bookfarm.interceptor.CheckLoginInterceptor;
+import com.bookfarm.interceptor.CheckWriterInterceptor;
 import com.bookfarm.interceptor.TopMenuInterceptor;
 import com.bookfarm.mapper.BoardMapper;
 import com.bookfarm.mapper.TopMenuMapper;
 import com.bookfarm.mapper.UserMapper;
+import com.bookfarm.service.BoardService;
 import com.bookfarm.service.TopMenuService;
 
 // Spring MVC 프로젝트에 관련된 설정을 하는 클래스
@@ -56,6 +58,9 @@ public class ServletAppContext implements WebMvcConfigurer{
 	
 	@Autowired
 	private TopMenuService topMenuService;
+	
+	@Autowired
+	private BoardService boardService;
 	
 	@Resource(name = "loginUserBean")
 	private UserBean loginUserBean;
@@ -138,6 +143,10 @@ public class ServletAppContext implements WebMvcConfigurer{
 		InterceptorRegistration reg2 = registry.addInterceptor(checkLoginInterceptor);
 		reg2.addPathPatterns("/user/modify", "/user/logout", "/board/*");
 		reg2.excludePathPatterns("/board/main");
+		
+		CheckWriterInterceptor checkWriterInterceptor = new CheckWriterInterceptor(loginUserBean, boardService);
+		InterceptorRegistration reg3 = registry.addInterceptor(checkWriterInterceptor);
+		reg3.addPathPatterns("/board/modify", "/board/delete");
 	}
 	
 	// 프로퍼티 파일 충돌 방지

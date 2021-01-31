@@ -31,4 +31,5 @@ public interface UserMapper {
 			"set user_pw = #{user_pw} " +
 			"where user_idx = #{user_idx}")
 	void modifyUserInfo(UserBean modifyUserBean);
+	
 }

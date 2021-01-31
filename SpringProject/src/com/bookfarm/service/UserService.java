@@ -38,8 +38,8 @@ public class UserService {
 		UserBean tempLoginUserBean2 = userDao.getLoginUserInfo(tempLoginUserBean);
 		
 		if(tempLoginUserBean2 != null) {
-			loginUserBean.setUser_idx(tempLoginUserBean.getUser_idx());
-			loginUserBean.setUser_name(tempLoginUserBean.getUser_name());
+			loginUserBean.setUser_idx(tempLoginUserBean2.getUser_idx());
+			loginUserBean.setUser_name(tempLoginUserBean2.getUser_name());
 			loginUserBean.setUserLogin(true);
 		}
 	}
@@ -49,8 +49,8 @@ public class UserService {
 		UserBean tempModifyUserBean = userDao.getModifyUserInfo(loginUserBean.getUser_idx());
 		
 		modifyUserBean.setUser_id(tempModifyUserBean.getUser_id());
-		modifyUserBean.setUser_idx(tempModifyUserBean.getUser_idx());;
 		modifyUserBean.setUser_name(tempModifyUserBean.getUser_name());
+		modifyUserBean.setUser_idx(loginUserBean.getUser_idx());
 		
 	}
 	

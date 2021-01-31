@@ -2,6 +2,7 @@ package com.bookfarm.controller;
 
 import java.util.List;
 
+import javax.annotation.Resource;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.bookfarm.beans.ContentBean;
+import com.bookfarm.beans.UserBean;
 import com.bookfarm.service.BoardService;
 
 @Controller
@@ -23,6 +25,9 @@ public class BoardController {
 	
 	@Autowired
 	private BoardService boardService;
+	
+	@Resource(name = "loginUserBean")
+	private UserBean loginUserBean;
 	
 	@GetMapping("/main")
 	public String main(@RequestParam("board_info_idx") int board_info_idx, Model model) {
@@ -49,6 +54,8 @@ public class BoardController {
 		model.addAttribute("readContentBean", readContentBean);
 		
 		model.addAttribute("content_idx", content_idx);
+		model.addAttribute("loginUserBean", loginUserBean);
+		
 		return "board/read";
 	}
 	
@@ -79,6 +86,11 @@ public class BoardController {
 	@GetMapping("/delete")
 	public String delete() {
 		return "board/delete";
+	}
+	
+	@GetMapping("/not_writer")
+	public String not_writer() {
+		return "board/not_writer";
 	}
 	
 
