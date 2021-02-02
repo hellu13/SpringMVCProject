@@ -10,6 +10,8 @@
 + Oracle Database 11g
 + SqlDeveloper
 
+## 사용 API
+
 ## 사용 라이브러리
 + Java Servlet API 4.0.1
 + JavaServer Pages API 2.3.3
@@ -29,12 +31,15 @@
 + 화면 구성
   + 상단/하단 메뉴 구성
   ```
-  모든 요청 주소에 대해 출력
-  Controller의 메서드가 호출되기 전에 처리하기 위해 HandlerInterceptor 인터페이스의 preHandle 메서드로 구현
-  경로 패턴을 "/**"로 주어 모든 주소에 대해 인터셉터가 동작하여 모든 페이지에 상단 메뉴가 보이도록 구현
+  > 모든 요청 주소에 대해 출력
+  > Controller의 메서드가 호출되기 전에 처리하기 위해 HandlerInterceptor 인터페이스의 preHandle 메서드로 구현
+  > 경로 패턴을 "/**"로 주어 모든 주소에 대해 인터셉터가 동작하여 모든 페이지에 상단 메뉴가 보이도록 구현
   ```
   + 메인 페이지 구성
-  + 페이징
+  ```
+  > 그리드를 이용해 '팝니다' 게시글 출력
+  > RestController를 이용해 JSON 형태로 데이터를 출력받아 게시글 출력
+  ```
   
 + 회원 관리
   + 회원 가입
