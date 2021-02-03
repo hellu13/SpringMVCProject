@@ -27,6 +27,7 @@
 				<div class="card-body">
 					<form:form action="${root }book/modify_pro" method="post" modelAttribute="modifyBookBean" enctype="multipart/form-data">
 					<form:hidden path="book_idx"/>
+					<input type="hidden" name="page" value="${page }"/>
 						<div class="form-group">
 							<form:label path="book_writer_name">판매자</form:label>
 							<form:input path="book_writer_name" class='form-control' readonly="true"/>

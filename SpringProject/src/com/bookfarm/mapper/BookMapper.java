@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectKey;
 import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.session.RowBounds;
 
 import com.bookfarm.beans.BookBean;
 
@@ -22,7 +23,7 @@ public interface BookMapper {
 			"from book_table a1, user_table a2 " +
 			"where a1.book_writer_idx = a2.user_idx " +
 			"order by a1.book_idx desc")
-	List<BookBean> getBookList();
+	List<BookBean> getBookList(RowBounds rowbounds);
 	
 	@Select("select a2.user_name as book_writer_name, "
 			+ "to_char(a1.book_date, 'YYYY-MM-DD') as book_date, "
@@ -40,7 +41,8 @@ public interface BookMapper {
 			"where book_idx = #{book_idx}")
 	void deleteBookInfo(int book_idx);
 
-	
+	@Select("select count(*) from book_table")
+	int getBookCnt();
 	
 
 }

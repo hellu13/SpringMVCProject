@@ -2,6 +2,7 @@ package com.bookfarm.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -15,11 +16,12 @@ public class BookDao {
 	private BookMapper bookMapper;
 	
 	public void addBookInfo(BookBean writeBookBean) {
+		
 		bookMapper.addBookInfo(writeBookBean);
 	}
 	
-	public List<BookBean> getBookList() {
-		return bookMapper.getBookList();
+	public List<BookBean> getBookList(RowBounds rowBounds) {
+		return bookMapper.getBookList(rowBounds);
 	}
 	
 	public BookBean getBookInfo(int book_idx) {
@@ -32,5 +34,9 @@ public class BookDao {
 
 	public void deleteBookInfo(int book_idx) {
 		bookMapper.deleteBookInfo(book_idx);
+	}
+	
+	public int getBookCnt() {
+		return bookMapper.getBookCnt();
 	}
 }

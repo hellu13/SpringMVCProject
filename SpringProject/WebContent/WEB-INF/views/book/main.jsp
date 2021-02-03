@@ -38,7 +38,7 @@
 					<c:forEach var='obj' items="${bookList }">
 						<tr>
 							<td class="text-center d-none d-md-table-cell">${obj.book_idx }</td>
-							<td><a href='${root }book/read?book_idx=${obj.book_idx}'>${obj.book_subject }</a></td>
+							<td><a href='${root }book/read?book_idx=${obj.book_idx}&page=${page}'>${obj.book_subject }</a></td>
 							<td class="text-center d-none d-md-table-cell">${obj.book_rate }</td>
 							<td class="text-center d-none d-md-table-cell">${obj.book_price }</td>
 							<td class="text-center d-none d-md-table-cell">${obj.book_writer_name }</td>
@@ -49,42 +49,50 @@
 			
 			<div class="d-none d-md-block">
 				<ul class="pagination justify-content-center">
-					<li class="page-item">
+				
+				 	<c:choose>
+				 	<c:when test="${pageBean.prevPage <=0 }">
+				 	<li class="page-item disabled">
 						<a href="#" class="page-link">이전</a>
 					</li>
-					<li class="page-item">
-						<a href="#" class="page-link">1</a>
+				 	</c:when>
+				 	<c:otherwise>
+				 	<li class="page-item">
+						<a href="${root }book/main?page=${pageBean.prevPage}" class="page-link">이전</a>
 					</li>
-					<li class="page-item">
-						<a href="#" class="page-link">2</a>
+				 	</c:otherwise>
+				 	</c:choose>
+					
+					
+					<c:forEach var="idx" begin="${pageBean.min }" end="${pageBean.max }">
+					<c:choose>
+					<c:when test="${idx == pageBean.currentPage }">
+					<li class="page-item active">
+						<a href="${root }book/main?page=${idx}" class="page-link">${idx }</a>
 					</li>
+					</c:when>
+					<c:otherwise>
 					<li class="page-item">
-						<a href="#" class="page-link">3</a>
+						<a href="${root }book/main?page=${idx}" class="page-link">${idx }</a>
 					</li>
-					<li class="page-item">
-						<a href="#" class="page-link">4</a>
-					</li>
-					<li class="page-item">
-						<a href="#" class="page-link">5</a>
-					</li>
-					<li class="page-item">
-						<a href="#" class="page-link">6</a>
-					</li>
-					<li class="page-item">
-						<a href="#" class="page-link">7</a>
-					</li>
-					<li class="page-item">
-						<a href="#" class="page-link">8</a>
-					</li>
-					<li class="page-item">
-						<a href="#" class="page-link">9</a>
-					</li>
-					<li class="page-item">
-						<a href="#" class="page-link">10</a>
-					</li>
-					<li class="page-item">
+					</c:otherwise>
+					</c:choose>
+					</c:forEach>
+					
+					<c:choose>
+					<c:when test="${pageBean.max >= pageBean.pageCnt }">
+					<li class="page-item disabled">
 						<a href="#" class="page-link">다음</a>
 					</li>
+					</c:when>
+					
+					<c:otherwise>
+					<li class="page-item">
+						<a href="${root }book/main?page=${pageBean.nextPage}" class="page-link">다음</a>
+					</li>
+					</c:otherwise>
+					</c:choose>
+					
 				</ul>
 			</div>
 			

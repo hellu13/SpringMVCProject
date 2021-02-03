@@ -41,7 +41,7 @@
 					</div>
 					<div class="form-group">
 						<label for="book_price">희망가</label>
-						<input type="text" id="book_price" name="book_price" class="book_price" value="${readBookBean.book_price}" disabled="disabled"/>
+						<input type="text" id="book_price" name="book_price" class="form-control" value="${readBookBean.book_price}" disabled="disabled"/>
 					</div>
 					
 					<div class="form-group">
@@ -52,17 +52,18 @@
 						<label for="book_date">작성날짜</label>
 						<input type="text" id="book_date" name="book_date" class="form-control" value="${readBookBean.book_date}" disabled="disabled"/>
 					</div>
-					<c:if test="${readContentBean.content_file != null }">
+					<c:if test="${readBookBean.book_file != null }">
 					<div class="form-group">
 						<label for="book_file">첨부 이미지</label>
-						<img src="${root}upload/${readBookBean.content_file}" width="100%"/>						
+						<br>
+						<img src="${root}upload/${readBookBean.book_file}" width="270" height="400"/>						
 					</div>
 					</c:if>
 					<div class="form-group">
 						<div class="text-right">
-							<a href="${root }book/main" class="btn btn-primary">목록보기</a>
+							<a href="${root }book/main?page=${page}" class="btn btn-primary">목록보기</a>
 							<c:if test="${loginUserBean.user_idx == readBookBean.book_writer_idx }">
-							<a href="${root }book/modify?book_idx=${book_idx}" class="btn btn-info">수정하기</a>
+							<a href="${root }book/modify?book_idx=${book_idx}&page=${page}" class="btn btn-info">수정하기</a>
 							<a href="${root }book/delete?book_idx=${book_idx}" class="btn btn-danger">삭제하기</a>
 							</c:if>
 						</div>

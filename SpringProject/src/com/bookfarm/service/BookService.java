@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.bookfarm.beans.BookBean;
+import com.bookfarm.beans.PageBean;
 import com.bookfarm.beans.UserBean;
 import com.bookfarm.dao.BookDao;
 
@@ -21,6 +23,12 @@ public class BookService {
 	
 	@Value("${path.upload}")
 	private String path_upload;
+	
+	@Value("${page.listcnt}")
+	private int page_listcnt;
+	
+	@Value("${page.paginationcnt}")
+	private int page_paginationcnt;
 	
 	@Autowired
 	private BookDao bookDao;
@@ -56,9 +64,12 @@ public class BookService {
 		
 	}
 	
-	public List<BookBean> getBookList() {
+	public List<BookBean> getBookList(int page) {
 		
-		return bookDao.getBookList();
+		int start = (page - 1) * page_listcnt;
+		RowBounds rowBounds = new RowBounds(start, page_listcnt);
+		
+		return bookDao.getBookList(rowBounds);
 	}
 	
 	public BookBean getBookInfo(int book_idx) {
@@ -78,6 +89,14 @@ public class BookService {
 	
 	public void deleteBookInfo(int book_idx) {
 		bookDao.deleteBookInfo(book_idx);
+	}
+	
+	public PageBean getBookCnt(int currentPage) {
+		int book_cnt = bookDao.getBookCnt();
+		
+		PageBean pageBean = new PageBean(book_cnt, currentPage, page_listcnt, page_paginationcnt);
+		
+		return pageBean;
 	}
 
 }

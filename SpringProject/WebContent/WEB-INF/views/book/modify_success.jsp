@@ -4,5 +4,5 @@
 <c:set var="root" value="${pageContext.request.contextPath }/"/>
 <script>
 	alert("게시글이 성공적으로 수정되었습니다")
-	location.href="${root}book/read?book_idx=${modifyBookBean.book_idx}"
+	location.href="${root}book/read?book_idx=${modifyBookBean.book_idx}&page=${page}"
 </script>
