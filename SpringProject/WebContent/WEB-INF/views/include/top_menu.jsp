@@ -13,7 +13,7 @@
 	</button>
 	<div class="collapse navbar-collapse" id="navMenu">
 		<ul class="navbar-nav">
-			<!--<li class="nav-item"><a href="main" class="nav-link">팝니다</a></li>-->
+			<li class="nav-item"><a href="book/main" class="nav-link">팝니다</a></li>
 			<c:forEach var="obj" items="${topMenuList }">
 			<li class="nav-item">
 				<a href="${root }board/main?board_info_idx=${obj.board_info_idx}" class="nav-link">${obj.board_info_name }</a>
