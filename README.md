@@ -46,7 +46,7 @@
     ```
   + 메인 페이지 구성
     + 판매 상태가 "판매중"인 도서에 한해서 출력
-   ```
+    ```
     > Restful API 서버 사용
     > @RestController를 통해 JSON 형태로 데이터를 전달하여 AJAX 통신을 통하여 브라우저에 출력
     > Toast UI Grid를 사용하여 데이터 출력
