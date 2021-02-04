@@ -36,6 +36,10 @@
 						<input type="text" id="book_subject" name="book_subject" class="form-control" value="${readBookBean.book_subject}" disabled="disabled"/>
 					</div>
 					<div class="form-group">
+						<label for="book_deal_status">거래 상태</label>
+						<input type="text" id="book_deal_status" name="book_deal_status" class="form-control" value="${readBookBean.book_deal_status}" disabled="disabled"/>
+					</div>
+					<div class="form-group">
 						<label for="book_rate">상태</label>
 						<input type="text" id="book_rate" name="book_rate" class="form-control" value="${readBookBean.book_rate}" disabled="disabled"/>
 					</div>

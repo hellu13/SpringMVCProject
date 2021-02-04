@@ -10,6 +10,8 @@
 <title>미니 프로젝트</title>
 <!-- Bootstrap CDN -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
@@ -35,6 +37,14 @@
 						<div class="form-group">
 							<form:label path="book_date">작성날짜</form:label>
 							<form:input path="book_date" class='form-control' readonly='true'/>
+						</div>
+						<div class="form-group">
+							<form:label path="book_deal_status">도서상태</form:label>
+							<form:select path="book_deal_status" class="form-select">
+								<form:option value="판매중" label="판매중"/>
+								<form:option value="거래중" label="거래중"/>
+								<form:option value="거래완료" label="거래완료"/>
+							</form:select>
 						</div>			
 						<div class="form-group">
 							<form:label path="book_subject">도서명</form:label>
@@ -68,7 +78,7 @@
 						<div class="form-group">
 							<div class="text-right">
 								<form:button class='btn btn-primary'>수정완료</form:button>
-								<a href="${root }book/read?book_idx=${book_idx}" class="btn btn-info">취소</a>
+								<a href="${root }book/read?book_idx=${book_idx}&page=${page}" class="btn btn-info">취소</a>
 							</div>
 						</div>
 					</form:form>

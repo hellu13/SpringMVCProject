@@ -18,6 +18,8 @@ public class BookBean {
 
 	@NotBlank
 	private String book_text;
+	
+	private String book_deal_status;
 	private MultipartFile upload_file;
 	private String book_file;
 	private int book_writer_idx;
@@ -103,6 +105,16 @@ public class BookBean {
 	public void setBook_writer_name(String book_writer_name) {
 		this.book_writer_name = book_writer_name;
 	}
+
+	public String getBook_deal_status() {
+		return book_deal_status;
+	}
+
+	public void setBook_deal_status(String book_deal_status) {
+		this.book_deal_status = book_deal_status;
+	}
+	
+	
 	
 	
 

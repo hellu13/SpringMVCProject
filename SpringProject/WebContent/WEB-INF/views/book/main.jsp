@@ -29,8 +29,9 @@
 					<tr>
 						<th class="text-center d-none d-md-table-cell">글번호</th>
 						<th class="w-30">도서명</th>
-						<th class="text-center d-none d-md-table-cell">상태</th>
+						<th class="text-center d-none d-md-table-cell">도서 상태</th>
 						<th class="text-center d-none d-md-table-cell">희망가</th>
+						<th class="text-center d-none d-md-table-cell">거래 상태</th>
 						<th class="text-center d-none d-md-table-cell">판매자</th>
 					</tr>
 				</thead>
@@ -41,6 +42,7 @@
 							<td><a href='${root }book/read?book_idx=${obj.book_idx}&page=${page}'>${obj.book_subject }</a></td>
 							<td class="text-center d-none d-md-table-cell">${obj.book_rate }</td>
 							<td class="text-center d-none d-md-table-cell">${obj.book_price }</td>
+							<td class="text-center d-none d-md-table-cell">${obj.book_deal_status }</td>
 							<td class="text-center d-none d-md-table-cell">${obj.book_writer_name }</td>
 						</tr>
 					</c:forEach>

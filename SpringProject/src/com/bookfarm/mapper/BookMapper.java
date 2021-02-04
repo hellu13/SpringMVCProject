@@ -22,11 +22,11 @@ public interface BookMapper {
 	
 	@Select("select a1.book_idx, a1.book_subject, a1.book_rate, a1.book_price, a2.user_name as book_writer_name " +
 			"from book_table a1, user_table a2 " +
-			"where a1.book_writer_idx = a2.user_idx " +
+			"where a1.book_writer_idx = a2.user_idx and a1.book_deal_status = '판매중' " +
 			"order by a1.book_idx desc")
 	ArrayList<BookBean> getMainList();
 	
-	@Select("select a1.book_idx, a1.book_subject, a1.book_rate, a1.book_price, a2.user_name as book_writer_name " +
+	@Select("select a1.book_idx, a1.book_subject, a1.book_rate, a1.book_price, a2.user_name as book_writer_name, a1.book_deal_status " +
 			"from book_table a1, user_table a2 " +
 			"where a1.book_writer_idx = a2.user_idx " +
 			"order by a1.book_idx desc")
@@ -34,13 +34,13 @@ public interface BookMapper {
 	
 	@Select("select a2.user_name as book_writer_name, "
 			+ "to_char(a1.book_date, 'YYYY-MM-DD') as book_date, "
-			+ "a1.book_subject, a1.book_rate, a1.book_price, a1.book_text, a1.book_file, a1.book_writer_idx "
+			+ "a1.book_subject, a1.book_rate, a1.book_price, a1.book_text, a1.book_file, a1.book_writer_idx, a1.book_deal_status "
 			+ "from book_table a1, user_table a2 "
 			+ "where a1.book_writer_idx = a2.user_idx and book_idx = #{book_idx}")
 	BookBean getBookInfo(int book_idx);
 	
 	@Update("update book_table " +
-			"set book_subject = #{book_subject}, book_rate = #{book_rate}, book_price = #{book_price}, book_text = #{book_text}, book_file = #{book_file, jdbcType=VARCHAR} " +
+			"set book_subject = #{book_subject}, book_rate = #{book_rate}, book_price = #{book_price}, book_text = #{book_text}, book_file = #{book_file, jdbcType=VARCHAR} , book_deal_status = #{book_deal_status}" +
 			"where book_idx = #{book_idx}")
 	void modifyBookInfo(BookBean modifyBookBean);
 	

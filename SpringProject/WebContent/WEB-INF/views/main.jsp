@@ -37,7 +37,7 @@ window.onload = function() {
 			name : 'book_subject',
 			filter : 'text'
 		}, {
-			header : '상태',
+			header : '도서 상태',
 			name : 'book_rate',
 			filter : 'select'
 		}, {
@@ -70,7 +70,7 @@ window.onload = function() {
 	<c:import url="/WEB-INF/views/include/top_menu.jsp" />
 	<!-- 팝니다 최신순 -->
 	<div class="container" style="margin-top: 100px">
-	<h4 class="card-title">도서 검색</h4>
+	<h4 class="card-title">판매중인 도서 검색</h4>
 	<hr>
 		
 		<div id="grid"></div>
