@@ -1,5 +1,6 @@
 package com.bookfarm.mapper;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Delete;
@@ -18,6 +19,12 @@ public interface BookMapper {
 	@Insert("insert into book_table(book_idx, book_subject, book_rate, book_price, book_text, book_file, book_writer_idx, book_date) " +
 			"values (${book_idx}, #{book_subject}, #{book_rate}, #{book_price}, #{book_text}, #{book_file, jdbcType=VARCHAR}, #{book_writer_idx}, sysdate)")
 	void addBookInfo(BookBean writeBookBean);
+	
+	@Select("select a1.book_idx, a1.book_subject, a1.book_rate, a1.book_price, a2.user_name as book_writer_name " +
+			"from book_table a1, user_table a2 " +
+			"where a1.book_writer_idx = a2.user_idx " +
+			"order by a1.book_idx desc")
+	ArrayList<BookBean> getMainList();
 	
 	@Select("select a1.book_idx, a1.book_subject, a1.book_rate, a1.book_price, a2.user_name as book_writer_name " +
 			"from book_table a1, user_table a2 " +

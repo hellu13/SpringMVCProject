@@ -1,5 +1,6 @@
 package com.bookfarm.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.session.RowBounds;
@@ -18,6 +19,10 @@ public class BookDao {
 	public void addBookInfo(BookBean writeBookBean) {
 		
 		bookMapper.addBookInfo(writeBookBean);
+	}
+	
+	public ArrayList<BookBean> getMainList() {
+		return bookMapper.getMainList();
 	}
 	
 	public List<BookBean> getBookList(RowBounds rowBounds) {

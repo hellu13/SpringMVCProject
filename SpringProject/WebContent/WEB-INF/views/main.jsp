@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:set var="root" value="${pageContext.request.contextPath }/"/>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="root" value="${pageContext.request.contextPath }/" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,83 +10,78 @@
 <!-- Bootstrap CDN -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://uicdn.toast.com/grid/latest/tui-grid.css" />
+<link rel="stylesheet" href="https://uicdn.toast.com/tui.pagination/latest/tui-pagination.css" />
+
+<script src="https://uicdn.toast.com/tui.pagination/latest/tui-pagination.js"></script>
 <script src="https://uicdn.toast.com/grid/latest/tui-grid.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+<script>
+window.onload = function() {
+	var grid = new tui.Grid({
+		el : document.getElementById('grid'),
+		pageOptions: {
+			perPage: 10,
+			useClient: true
+		},
+		scrollX : false,
+		scrollY : true,
+		columns : [ {
+			header : '#',
+			name : 'book_idx'
+		}, {
+			header : '책이름',
+			name : 'book_subject',
+			filter : 'text'
+		}, {
+			header : '상태',
+			name : 'book_rate',
+			filter : 'select'
+		}, {
+			header : '희망가',
+			name : 'book_price',
+			sortingType: 'asc',
+	         sortable: true
+		}, {
+			header : '판매자',
+			name : 'book_writer_name'
+		} ]
+	});
+	
+	$.ajax({
+		url: "${root}readData",
+		method: "GET",
+		dataType: "JSON",
+		success: function(result) {
+			grid.resetData(result);
+		}
+	});
+};
+
+
+</script>
 
 
 </head>
 <body>
-<c:import url="/WEB-INF/views/include/top_menu.jsp"/>
+	<c:import url="/WEB-INF/views/include/top_menu.jsp" />
 	<!-- 팝니다 최신순 -->
 	<div class="container" style="margin-top: 100px">
-		<div class="form-group row pull-right">
-			<div class="col-xs-10">
-				<input class="form-control" type="text" size="30">
-			</div>
-			<div class="col-xs-2">
-				<button class="btn btn-primary" type="button">검색</button>
-			</div>
-		</div>
-		<div id="grid"></div>
-		<script type="text/javascript">
-				const gridData = [
-			  {
-				book_idx: '0',
-				book_subject: '자바 첫걸음',
-			    book_price: '15000'
-			  },
-			  {
-				book_idx: '1',
-				book_subject: '스프링',
-				book_price: '14000'    
-			  },
-			  {
-				book_idx: '2',
-				book_subject: '오라클',
-				book_price: '16000'
-			  },
-			  {
-				book_idx: '3',
-				book_subject: '정보처리기사',
-				book_price: '18000'
-			  },
-			  {
-				book_idx: '4',
-				book_subject: '객체지향',
-				book_price: '13000'
-			  }
-			];
+	<h4 class="card-title">도서 검색</h4>
+	<hr>
 		
-			  const grid = new tui.Grid({
-		      el: document.getElementById('grid'),
-		      data: gridData,
-		      scrollX: false,
-		      scrollY: false,
-		      columns: [
-		        {
-		          header: '아이디',
-		          name: 'book_idx'
-		        },
-		        {
-		          header: '책이름',
-		          name: 'book_subject'
-		        },
-		        {
-		          header: '가격',
-		          name: 'book_price'
-		        }
-		      ]
-		    });
-		</script>
+		<div id="grid"></div>
+
 
 	</div>
-	
-	<c:import url="/WEB-INF/views/include/bottom_info.jsp"/>
-	
 
-	
+	<c:import url="/WEB-INF/views/include/bottom_info.jsp" />
+
+
+
 
 </body>
 </html>
