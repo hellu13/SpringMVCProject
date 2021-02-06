@@ -38,7 +38,8 @@
   
   
 ## 프로젝트 구조
-<img width="452" alt="mvc" src="https://user-images.githubusercontent.com/46749717/106530688-2647b000-6530-11eb-885c-4533ff575d50.PNG">  
+<img width="613" alt="mvc" src="https://user-images.githubusercontent.com/46749717/107127827-1e0abe80-68fc-11eb-8f93-419917630024.PNG">   
+
   
   
 ## 구현 기능
