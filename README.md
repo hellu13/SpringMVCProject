@@ -64,8 +64,9 @@
     ```
     주요 코드   
     [RestApiController.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/controller/RestApiController.java) / [main.jsp](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/WebContent/WEB-INF/views/main.jsp)   
-       
-       
+    
+    
+    
 + 회원 관리
   + 회원 가입
     + Form에 맞춰 회원 가입에 필요한 정보 입력
@@ -98,8 +99,9 @@
     ```
     주요 코드   
     [UserValidator.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/validator/UserValidator.java) / [user_modify.jsp](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/WebContent/WEB-INF/views/user/modify.jsp)   
-       
-       
+    
+    
+    
 + 게시판
   + 글 작성
     + 로그인한 사용자에 한해 게시글 작성 가능
