@@ -1,20 +1,23 @@
 # Spring MVC 프로젝트 (책 Farm)
 
 ## 책 Farm 소개
-+ 중고서적을 구매/판매하기 위한 게시판 형태의 홈페이지
++ 중고서적을 구매/판매하기 위한 게시판 형태의 홈페이지   
 
+### 프로젝트 설정
++ Maven
++ JDK 1.8
++ Oracle Database 11g
++ Apache tomcat 9.0
++ Java Configuration   
    
 ## 사용 프로그램
 + Eclipse(2020-12)
-+ JDK 8
-+ Apache tomcat 9.0
-+ Oracle Database 11g
-+ SqlDeveloper
++ SqlDeveloper   
 
    
 ## 사용 플랫폼
 + Bootstrap 4
-+ Toast UI (Grid)
++ Toast UI (Grid)   
 
    
 ## 사용 라이브러리
@@ -28,11 +31,11 @@
 + Apache Commons DBCP 2.7.0
 + MyBatis 3.5.4
 + MyBatis Spring 2.0.4
-+ Jackson Databind 2.11.3
++ Jackson Databind 2.11.3   
 
    
 ## 프로젝트 구조
-<img width="452" alt="mvc" src="https://user-images.githubusercontent.com/46749717/106530688-2647b000-6530-11eb-885c-4533ff575d50.PNG">
+<img width="452" alt="mvc" src="https://user-images.githubusercontent.com/46749717/106530688-2647b000-6530-11eb-885c-4533ff575d50.PNG">   
 
    
 ## 구현 기능
@@ -88,7 +91,7 @@
     + 사용자 비밀번호 변경
     + 비밀번호, 비밀번호 확인 값이 다르면 경고 메시지 출력
     ```
-    > Validator 인터페이스의 initbinder 메소드로 구현
+    > Validator 인터페이스의 initbinder 메소드에 비밀번호 일치 여부 확인 코드 작성
     ```
     주요 코드   
     [UserValidator.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/validator/UserValidator.java) / [user_modify.jsp](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/WebContent/WEB-INF/views/user/modify.jsp)
@@ -101,7 +104,7 @@
     + Form에 맞춰 글 작성에 필요한 정보 입력
     ```
     > Interceptor를 통해 로그인 여부 체크
-    > 이미지 업로드를 위해 StandardServletMultipartResolver 인터페이스 사용
+    > 이미지 업로드를 위해 StandardServletMultipartResolver 인터페이스 Bean 등록 
     ```
     주요 코드  
     [CheckLoginInterceptor.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/interceptor/CheckLoginInterceptor.java) / [BookService.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/service/BookService.java) / [book_write.jsp](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/WebContent/WEB-INF/views/book/write.jsp)   
