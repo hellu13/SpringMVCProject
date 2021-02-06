@@ -13,7 +13,7 @@
 
    
 ## 사용 플랫폼
-+ Bootstrap
++ Bootstrap 4
 + Toast UI (Grid)
 
    
@@ -70,7 +70,7 @@
     > 기본 제공 유효성 검사 외 유효성 검사는 Validator 인터페이스의 initbinder 메소드로 구현
     ```
     주요 코드   
-    [UserValidator.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/validator/UserValidator.java) / [user/join.jsp](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/WebContent/WEB-INF/views/user/join.jsp)      
+    [UserValidator.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/validator/UserValidator.java) / [user_join.jsp](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/WebContent/WEB-INF/views/user/join.jsp)      
     
   + 로그인/로그아웃
     + 로그인 여부에 따라 로그인 혹은 로그아웃 버튼 출력
@@ -91,7 +91,7 @@
     > Validator 인터페이스의 initbinder 메소드로 구현
     ```
     주요 코드   
-    [UserValidator.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/validator/UserValidator.java) / [user/modify.jsp](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/WebContent/WEB-INF/views/user/modify.jsp)
+    [UserValidator.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/validator/UserValidator.java) / [user_modify.jsp](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/WebContent/WEB-INF/views/user/modify.jsp)
     
   
      
@@ -104,7 +104,7 @@
     > 이미지 업로드를 위해 StandardServletMultipartResolver 인터페이스 사용
     ```
     주요 코드  
-    [CheckLoginInterceptor.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/interceptor/CheckLoginInterceptor.java) / [BookService.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/service/BookService.java) / [book/write.jsp](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/WebContent/WEB-INF/views/book/write.jsp)   
+    [CheckLoginInterceptor.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/interceptor/CheckLoginInterceptor.java) / [BookService.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/service/BookService.java) / [book_write.jsp](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/WebContent/WEB-INF/views/book/write.jsp)   
     
     
   + 글 읽기
@@ -119,7 +119,7 @@
     > 직접 해당 주소를 입력하여 접속하는 것을 방지하기 위해 해당 주소를 Inteceptor로 처리
     ```
     주요 코드   
-    [CheckWriterInterceptor.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/interceptor/CheckWriterInterceptor.java) / [ServletAppContext.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/config/ServletAppContext.java) / [book/modify.jsp](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/WebContent/WEB-INF/views/book/modify.jsp)   
+    [CheckWriterInterceptor.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/interceptor/CheckWriterInterceptor.java) / [ServletAppContext.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/config/ServletAppContext.java) / [book_modify.jsp](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/WebContent/WEB-INF/views/book/modify.jsp)   
     
   + 글 삭제
     + 글 삭제 버튼 클릭 시 해당 게시글 삭제
@@ -135,7 +135,7 @@
     주요 코드   
     [BookService.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/service/BookService.java)   
     
-  + 글 검색
+  +글 검색
    + 검색창에 제목을 입력하여 게시글 검색 가능
    + 검색 후 해당 게시글에 한해 페이징 처리
    + 검색이 된 특정 게시글 열람 후 목록보기 클릭 시에도 검색된 게시글들의 목록만 출력
@@ -143,7 +143,7 @@
    검색어와 해당 게시판 번호는 Bean 객체에 저장 후 관리
    ```   
    주요 코드   
-   [board/main.jsp](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/WebContent/WEB-INF/views/board/main.jsp) / [BoardController.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/controller/BoardController.java) / [BoardService.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/service/BoardService.java)   
+   [board_main.jsp](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/WebContent/WEB-INF/views/board/main.jsp) / [BoardController.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/controller/BoardController.java) / [BoardService.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/service/BoardService.java)   
    
     
     
