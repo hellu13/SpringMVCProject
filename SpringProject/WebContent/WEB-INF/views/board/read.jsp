@@ -51,11 +51,16 @@
 					</c:if>
 					<div class="form-group">
 						<div class="text-right">
-							<a href="${root }board/main?board_info_idx=${board_info_idx}&page=${page}" class="btn btn-primary">목록보기</a>
-							<c:if test="${loginUserBean.user_idx == readContentBean.content_writer_idx }">
+							<c:choose>
+							<c:when test="${empty keyword }">
+								<a href="${root }board/main?board_info_idx=${board_info_idx}&page=${page}" class="btn btn-primary">목록보기</a>
+							</c:when>
+							<c:otherwise>
+								<a href="${root }board/main?board_info_idx=${board_info_idx}&page=${page}&keyword=${keyword}" class="btn btn-primary">목록보기</a>
+							</c:otherwise>
+							</c:choose>							
 							<a href="${root }board/modify?board_info_idx=${board_info_idx}&content_idx=${content_idx}&page=${page}" class="btn btn-info">수정하기</a>
 							<a href="${root }board/delete?board_info_idx=${board_info_idx}&content_idx=${content_idx}" class="btn btn-danger">삭제하기</a>
-							</c:if>
 						</div>
 					</div>
 				</div>

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.bookfarm.beans.ContentBean;
 import com.bookfarm.beans.PageBean;
+import com.bookfarm.beans.SearchBean;
 import com.bookfarm.beans.UserBean;
 import com.bookfarm.service.BoardService;
 
@@ -31,19 +32,24 @@ public class BoardController {
 	private UserBean loginUserBean;
 	
 	@GetMapping("/main")
-	public String main(@RequestParam("board_info_idx") int board_info_idx, 
+	public String main(@RequestParam("board_info_idx") int board_info_idx,
+					   @RequestParam(value = "keyword", defaultValue = "-") String keyword,
 					   @RequestParam(value = "page", defaultValue = "1") int page,
+					   @ModelAttribute("searchBoardBean") SearchBean searchBoardBean,
 					   Model model) {
 		
 		model.addAttribute("board_info_idx", board_info_idx);
 		
+		searchBoardBean.setKeyword(keyword);
+		searchBoardBean.setBoard_info_idx(board_info_idx);
+		
 		String boardInfoName = boardService.getBoardInfoName(board_info_idx);
 		model.addAttribute("boardInfoName", boardInfoName);
 		
-		List<ContentBean> contentList = boardService.getContentList(board_info_idx, page);
+		List<ContentBean> contentList = boardService.getContentList(searchBoardBean, page);
 		model.addAttribute("contentList", contentList);
 		
-		PageBean pageBean = boardService.getContentCnt(board_info_idx, page);
+		PageBean pageBean = boardService.getContentCnt(searchBoardBean, page);
 		model.addAttribute("pageBean", pageBean);
 		
 		model.addAttribute("page", page);
@@ -51,10 +57,27 @@ public class BoardController {
 		return "board/main";
 	}
 	
+	@PostMapping("/main_pro")
+	public String main_pro(@RequestParam("board_info_idx") int board_info_idx,
+						   @Valid @ModelAttribute("searchBoardBean") SearchBean searchBoardBean,
+						   BindingResult result,
+						   Model model) {
+		
+		model.addAttribute("searchBoardBean", searchBoardBean);
+		
+		if(result.hasErrors()) {
+			return "board/main";
+		}
+		
+		return "board/main_search";
+		
+	}
+	
 	@GetMapping("/read")
 	public String read(@RequestParam("board_info_idx") int board_info_idx,
 					   @RequestParam("content_idx") int content_idx,
 					   @RequestParam("page") int page,
+					   @RequestParam(value = "keyword", required = false) String keyword,
 					   Model model) {
 		
 		model.addAttribute("board_info_idx", board_info_idx);
@@ -65,6 +88,7 @@ public class BoardController {
 		model.addAttribute("content_idx", content_idx);
 		model.addAttribute("loginUserBean", loginUserBean);
 		model.addAttribute("page", page);
+		model.addAttribute("keyword", keyword);
 		
 		return "board/read";
 	}

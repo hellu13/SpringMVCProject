@@ -10,6 +10,7 @@ import org.apache.ibatis.annotations.Update;
 import org.apache.ibatis.session.RowBounds;
 
 import com.bookfarm.beans.ContentBean;
+import com.bookfarm.beans.SearchBean;
 
 
 public interface BoardMapper {
@@ -25,6 +26,12 @@ public interface BoardMapper {
 			"where board_info_idx = #{board_info_idx}")
 	String getBoardInfoName(int board_info_idx);
 	
+	
+	@Select("select a1.content_idx, a1.content_subject, a2.user_name as content_writer_name, to_char(a1.content_date, 'YYYY-MM-DD') as content_date " +
+			"from content_table a1, user_table a2 " +
+			"where a1.content_writer_idx = a2.user_idx and a1.content_board_idx = #{board_info_idx} and a1.content_subject like '%'||#{keyword}||'%' " +
+			"order by a1.content_idx desc")
+	List<ContentBean> getKeywordContentList(SearchBean searchBoardBean, RowBounds rowBounds);
 	
 	@Select("select a1.content_idx, a1.content_subject, a2.user_name as content_writer_name, to_char(a1.content_date, 'YYYY-MM-DD') as content_date " +
 			"from content_table a1, user_table a2 " +
@@ -51,5 +58,8 @@ public interface BoardMapper {
 	// 전체 글의 개수
 	@Select("select count(*) from content_table where content_board_idx = #{content_board_idx}")
 	int getContentCnt(int content_board_idx);
+	
+	@Select("select count(*) from content_table where content_board_idx = #{board_info_idx} and content_subject like '%'||#{keyword}||'%'")
+	int getKeywordContentCnt(SearchBean searchBoardBean);
 
 }

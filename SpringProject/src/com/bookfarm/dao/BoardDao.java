@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.bookfarm.beans.ContentBean;
+import com.bookfarm.beans.SearchBean;
 import com.bookfarm.mapper.BoardMapper;
 
 @Repository
@@ -27,10 +28,14 @@ public class BoardDao {
 		return boardMapper.getContentList(board_info_idx, rowBounds);
 	}
 	
+	public List<ContentBean> getKeywordContentList(SearchBean searchBoardBean, RowBounds rowBounds) {
+		return boardMapper.getKeywordContentList(searchBoardBean, rowBounds);
+	}
+	
 	public ContentBean getContentInfo(int content_idx) {
 		return boardMapper.getContentInfo(content_idx);
 	}
-	
+		
 	public void modifyContentInfo(ContentBean modifyContentBean) {
 		boardMapper.modifyContentInfo(modifyContentBean);
 	}
@@ -41,6 +46,10 @@ public class BoardDao {
 	
 	public int getContentCnt(int content_board_idx) {
 		return boardMapper.getContentCnt(content_board_idx);
+	}
+	
+	public int getKeywordContentCnt(SearchBean searchBoardBean) {
+		return boardMapper.getKeywordContentCnt(searchBoardBean);
 	}
 
 }

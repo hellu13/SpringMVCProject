@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.bookfarm.beans.ContentBean;
 import com.bookfarm.beans.PageBean;
+import com.bookfarm.beans.SearchBean;
 import com.bookfarm.beans.UserBean;
 import com.bookfarm.dao.BoardDao;
 
@@ -67,12 +68,14 @@ public class BoardService {
 		return boardDao.getBoardInfoName(board_info_idx);
 	}
 	
-	public List<ContentBean> getContentList(int board_info_idx, int page) {
+	public List<ContentBean> getContentList(SearchBean searchBoardBean, int page) {
 		
 		int start = (page - 1) * page_listcnt;
 		RowBounds rowBounds = new RowBounds(start, page_listcnt);
-		
-		return boardDao.getContentList(board_info_idx, rowBounds);
+		if("-".equals(searchBoardBean.getKeyword())) {
+			return boardDao.getContentList(searchBoardBean.getBoard_info_idx(), rowBounds);
+		}
+		return boardDao.getKeywordContentList(searchBoardBean, rowBounds);
 	}
 	
 	public ContentBean getContentInfo(int content_idx) {
@@ -94,8 +97,15 @@ public class BoardService {
 		boardDao.deleteContentInfo(content_idx);
 	}
 	
-	public PageBean getContentCnt(int content_board_idx, int currentPage) {
-		int content_cnt = boardDao.getContentCnt(content_board_idx);
+	public PageBean getContentCnt(SearchBean searchBoardBean, int currentPage) {
+
+		int content_cnt;
+		if("-".equals(searchBoardBean.getKeyword())) {
+			content_cnt = boardDao.getContentCnt(searchBoardBean.getBoard_info_idx());
+		} 
+		else {
+		content_cnt = boardDao.getKeywordContentCnt(searchBoardBean);
+		}
 		
 		PageBean pageBean = new PageBean(content_cnt, currentPage, page_listcnt, page_paginationcnt);
 		
