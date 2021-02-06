@@ -108,9 +108,9 @@
     
     
   + 글 읽기
-   + 글 목록에서 제목을 클릭하면 해당 게시글 열람 가능
-   + 글 작성자와 로그인한 사용자가 같을 경우에만 글 수정/삭제 버튼 출력
-   + 해당 게시판 목록 페이지로 이동 가능   
+      + 글 목록에서 제목을 클릭하면 해당 게시글 열람 가능
+      + 글 작성자와 로그인한 사용자가 같을 경우에만 글 수정/삭제 버튼 출력
+      + 해당 게시판 목록 페이지로 이동 가능   
 
   + 글 수정
     + 작성자, 게시일을 제외한 게시글 수정 가능
@@ -135,15 +135,16 @@
     주요 코드   
     [BookService.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/service/BookService.java)   
     
-  +글 검색
-   + 검색창에 제목을 입력하여 게시글 검색 가능
-   + 검색 후 해당 게시글에 한해 페이징 처리
-   + 검색이 된 특정 게시글 열람 후 목록보기 클릭 시에도 검색된 게시글들의 목록만 출력
-   ```
-   검색어와 해당 게시판 번호는 Bean 객체에 저장 후 관리
-   ```   
-   주요 코드   
-   [board_main.jsp](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/WebContent/WEB-INF/views/board/main.jsp) / [BoardController.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/controller/BoardController.java) / [BoardService.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/service/BoardService.java)   
+    
+  + 글 검색
+      + 검색창에 제목을 입력하여 게시글 검색 가능
+      + 검색 후 해당 게시글에 한해 페이징 처리
+      + 검색이 된 특정 게시글 열람 후 목록보기 클릭 시에도 검색된 게시글들의 목록만 출력
+      ```
+      검색어와 해당 게시판 번호는 Bean 객체에 저장 후 관리
+      ```   
+      주요 코드   
+      [board_main.jsp](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/WebContent/WEB-INF/views/board/main.jsp) / [BoardController.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/controller/BoardController.java) / [BoardService.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/service/BoardService.java)   
    
     
     
