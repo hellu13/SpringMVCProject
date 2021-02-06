@@ -1,28 +1,28 @@
-# Spring MVC 프로젝트 (책 Farm)   
-   
-   
+# Spring MVC 프로젝트 (책 Farm)  
+  
+  
 ## 책 Farm 소개
-+ 중고서적을 구매/판매하기 위한 게시판 형태의 홈페이지   
-   
-   
++ 중고서적을 구매/판매하기 위한 게시판 형태의 홈페이지  
+  
+  
 ### 프로젝트 설정
 + Maven
 + JDK 1.8
 + Oracle Database 11g
 + Apache tomcat 9.0
-+ Java Configuration   
-   
-   
-   ## 사용 프로그램
++ Java Configuration  
+  
+  
+## 사용 프로그램
 + Eclipse(2020-12)
-+ SqlDeveloper   
-   
-   
++ SqlDeveloper  
+  
+  
 ## 사용 플랫폼
 + Bootstrap 4
-+ Toast UI (Grid)   
-   
-   
++ Toast UI (Grid)  
+  
+  
 ## 사용 라이브러리
 + Java Servlet API 4.0.1
 + JavaServer Pages API 2.3.3
@@ -34,13 +34,13 @@
 + Apache Commons DBCP 2.7.0
 + MyBatis 3.5.4
 + MyBatis Spring 2.0.4
-+ Jackson Databind 2.11.3   
-   
-   
++ Jackson Databind 2.11.3  
+  
+  
 ## 프로젝트 구조
-<img width="452" alt="mvc" src="https://user-images.githubusercontent.com/46749717/106530688-2647b000-6530-11eb-885c-4533ff575d50.PNG">   
-   
-   
+<img width="452" alt="mvc" src="https://user-images.githubusercontent.com/46749717/106530688-2647b000-6530-11eb-885c-4533ff575d50.PNG">  
+  
+  
 ## 구현 기능
 + 화면 구성
   + 상단/하단 메뉴 구성
@@ -63,10 +63,9 @@
     > Tosat UI Grid를 통한 데이터 검색, 정렬, 페이징 기능 추가
     ```
     주요 코드   
-    [RestApiController.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/controller/RestApiController.java) / [main.jsp](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/WebContent/WEB-INF/views/main.jsp)   
-    
-    
-    
+    [RestApiController.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/controller/RestApiController.java) / [main.jsp](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/WebContent/WEB-INF/views/main.jsp)  
+      
+      
 + 회원 관리
   + 회원 가입
     + Form에 맞춰 회원 가입에 필요한 정보 입력
@@ -98,10 +97,9 @@
     > Validator 인터페이스의 initbinder 메소드에 비밀번호 일치 여부 확인 코드 작성
     ```
     주요 코드   
-    [UserValidator.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/validator/UserValidator.java) / [user_modify.jsp](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/WebContent/WEB-INF/views/user/modify.jsp)   
-    
-    
-    
+    [UserValidator.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/validator/UserValidator.java) / [user_modify.jsp](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/WebContent/WEB-INF/views/user/modify.jsp)  
+      
+      
 + 게시판
   + 글 작성
     + 로그인한 사용자에 한해 게시글 작성 가능
