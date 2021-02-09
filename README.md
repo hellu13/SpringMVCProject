@@ -52,7 +52,8 @@
     > 모든 요청 주소에 Inteceptor가 동작하도록하여 모든 페이지에 상단/하단 메뉴 출력
     ```
     주요 코드   
-    [TopMenuInterceptor.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/interceptor/TopMenuInterceptor.java) / [ServletAppContext.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/config/ServletAppContext.java) / [top_menu.jsp](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/WebContent/WEB-INF/views/include/top_menu.jsp)   
+    [TopMenuInterceptor.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/interceptor/TopMenuInterceptor.java) / [ServletAppContext.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/config/ServletAppContext.java) / [top_menu.jsp](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/WebContent/WEB-INF/views/include/top_menu.jsp)  
+    
        
   + 메인 페이지 구성
     + 판매 상태가 "판매중"인 도서에 한해서 출력
@@ -65,6 +66,9 @@
     ```
     주요 코드   
     [RestApiController.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/controller/RestApiController.java) / [main.jsp](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/WebContent/WEB-INF/views/main.jsp)  
+    실행 화면  
+    <img width="539" alt="메인" src="https://user-images.githubusercontent.com/46749717/107382630-7081f000-6b33-11eb-984a-7a1bad71cd1f.PNG">  
+    
       
       
 + 회원 관리
@@ -79,7 +83,10 @@
     > 기본 제공 유효성 검사 외 유효성 검사는 Validator 인터페이스의 initbinder 메소드로 구현
     ```
     주요 코드   
-    [UserValidator.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/validator/UserValidator.java) / [user_join.jsp](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/WebContent/WEB-INF/views/user/join.jsp)      
+    [UserValidator.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/validator/UserValidator.java) / [user_join.jsp](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/WebContent/WEB-INF/views/user/join.jsp)  
+    실행 화면  
+    <img width="540" alt="회원가입" src="https://user-images.githubusercontent.com/46749717/107382859-b5a62200-6b33-11eb-8207-ffbf7c14c912.png">  
+    
     
   + 로그인/로그아웃
     + 로그인 여부에 따라 로그인 혹은 로그아웃 버튼 출력
@@ -92,6 +99,11 @@
     ```
     주요 코드   
     [RootAppContext.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/config/RootAppContext.java) / [user/login.jsp](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/WebContent/WEB-INF/views/user/login.jsp)   
+    실행 화면   
+    <img width="539" alt="로그인" src="https://user-images.githubusercontent.com/46749717/107382818-a7f09c80-6b33-11eb-9d78-aeb38cb233d8.png">   
+       
+       
+    
     
   + 정보 수정
     + 사용자 비밀번호 변경
@@ -101,6 +113,9 @@
     ```
     주요 코드   
     [UserValidator.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/validator/UserValidator.java) / [user_modify.jsp](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/WebContent/WEB-INF/views/user/modify.jsp)  
+    실행 화면  
+    <img width="540" alt="정보수정" src="https://user-images.githubusercontent.com/46749717/107382753-94ddcc80-6b33-11eb-9d2a-1858234b2a6c.png">  
+    
       
       
 + 게시판
@@ -112,13 +127,23 @@
     > 이미지 업로드를 위해 StandardServletMultipartResolver 인터페이스 Bean 등록 
     ```
     주요 코드  
-    [CheckLoginInterceptor.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/interceptor/CheckLoginInterceptor.java) / [BookService.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/service/BookService.java) / [book_write.jsp](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/WebContent/WEB-INF/views/book/write.jsp)   
+    [CheckLoginInterceptor.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/interceptor/CheckLoginInterceptor.java) / [BookService.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/service/BookService.java) / [book_write.jsp](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/WebContent/WEB-INF/views/book/write.jsp)  
+    실행 화면  
+    <img width="540" alt="도서등록" src="https://user-images.githubusercontent.com/46749717/107382714-8d1e2800-6b33-11eb-8a14-c191c7a50270.png">  
+    
     
     
   + 글 읽기
       + 글 목록에서 제목을 클릭하면 해당 게시글 열람 가능
       + 글 작성자와 로그인한 사용자가 같을 경우에만 글 수정/삭제 버튼 출력
-      + 해당 게시판 목록 페이지로 이동 가능   
+      + 해당 게시판 목록 페이지로 이동 가능  
+      ```
+      > 로그인한 사용자의 정보가 저장된 Bean 객체와 해당 글의 정보가 저장된 Bean 객체의 사용자 인덱스를 비교하여 같으면 글 수정/삭제 버튼 출력
+      ```
+      주요 코드   
+      [BookController.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/controller/BookController.java) / [book_read.jsp](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/WebContent/WEB-INF/views/book/read.jsp)  
+      실행 화면  
+      
 
   + 글 수정
     + 작성자, 게시일을 제외한 게시글 수정 가능
@@ -127,7 +152,7 @@
     > 직접 해당 주소를 입력하여 접속하는 것을 방지하기 위해 해당 주소를 Inteceptor로 처리
     ```
     주요 코드   
-    [CheckWriterInterceptor.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/interceptor/CheckWriterInterceptor.java) / [ServletAppContext.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/config/ServletAppContext.java) / [book_modify.jsp](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/WebContent/WEB-INF/views/book/modify.jsp)   
+    [CheckWriterInterceptor.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/interceptor/CheckWriterInterceptor.java) / [ServletAppContext.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/config/ServletAppContext.java) / [book_modify.jsp](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/WebContent/WEB-INF/views/book/modify.jsp)  
     
   + 글 삭제
     + 글 삭제 버튼 클릭 시 해당 게시글 삭제
@@ -141,7 +166,10 @@
     RowBounds 클래스를 이용하여 해당 페이지의 글 목록 출력
     ```
     주요 코드   
-    [BookService.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/service/BookService.java)   
+    [BookService.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/service/BookService.java)  
+    실행 화면  
+    <img width="540" alt="리스트" src="https://user-images.githubusercontent.com/46749717/107382687-855e8380-6b33-11eb-9d6a-a898bebcdb3b.png">  
+    
     
     
   + 글 검색
@@ -152,7 +180,10 @@
       검색어와 해당 게시판 번호는 Bean 객체에 저장 후 관리
       ```   
       주요 코드   
-      [board_main.jsp](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/WebContent/WEB-INF/views/board/main.jsp) / [BoardController.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/controller/BoardController.java) / [BoardService.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/service/BoardService.java)   
+      [board_main.jsp](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/WebContent/WEB-INF/views/board/main.jsp) / [BoardController.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/controller/BoardController.java) / [BoardService.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/service/BoardService.java)  
+      실행 화면  
+      <img width="540" alt="검색" src="https://user-images.githubusercontent.com/46749717/107382661-7bd51b80-6b33-11eb-9fc2-e299c3ba5846.png">  
+      
    
     
     
