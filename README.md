@@ -67,7 +67,7 @@
     주요 코드   
     [RestApiController.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/controller/RestApiController.java) / [main.jsp](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/WebContent/WEB-INF/views/main.jsp)  
     실행 화면  
-    <img width="539" alt="메인" src="https://user-images.githubusercontent.com/46749717/107382630-7081f000-6b33-11eb-984a-7a1bad71cd1f.PNG">  
+    <img width="540" alt="메인" src="https://user-images.githubusercontent.com/46749717/107386038-d02dca80-6b36-11eb-8803-4cbce13f6b26.png">  
     
       
       
@@ -143,6 +143,8 @@
       주요 코드   
       [BookController.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/controller/BookController.java) / [book_read.jsp](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/WebContent/WEB-INF/views/book/read.jsp)  
       실행 화면  
+      <img width="540" alt="읽기" src="https://user-images.githubusercontent.com/46749717/107386066-d754d880-6b36-11eb-8612-9254a1b7d81b.png">  
+      
       
 
   + 글 수정
