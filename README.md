@@ -170,7 +170,8 @@
     주요 코드   
     [BookService.java](https://github.com/hellu13/SpringMVCProject/blob/main/SpringProject/src/com/bookfarm/service/BookService.java)  
     실행 화면  
-    <img width="540" alt="리스트" src="https://user-images.githubusercontent.com/46749717/107382687-855e8380-6b33-11eb-9d6a-a898bebcdb3b.png">  
+    <img width="540" alt="목록" src="https://user-images.githubusercontent.com/46749717/107387029-c3f63d00-6b37-11eb-8ff3-b2d8712930b9.png">  
+    
     
     
     
